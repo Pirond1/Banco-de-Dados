@@ -37,5 +37,21 @@ group by IDOrdem
 
 --7
 
-select IDOrdem, max(Quantidade) as MaximoVenda from [Ordens-Detalhes]
+select top 1 IDOrdem, count(*) as numero from [Ordens-Detalhes]
 group by IDOrdem
+
+
+--8
+
+select top 1 IDOrdem, PrecoUnitario as Preco from [Ordens-Detalhes]
+order by Preco desc
+
+
+--9
+select top 1 NomeContato, PrecoUnitario as Preco from [Ordens-Detalhes], Clientes
+order by Preco desc
+
+--10
+
+select top 1 Nome, DATEDIFF (Year, DataNac, GETDATE()) as data from Funcionarios
+order by data asc
