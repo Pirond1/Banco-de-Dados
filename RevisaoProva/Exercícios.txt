@@ -1,0 +1,77 @@
+				PARTE 1
+
+Questão 1 -> A
+
+Questão 2 ->
+	obra (o̲b̲r̲_̲c̲o̲d̲i̲g̲o̲, obr_titulo, obr_dtaAquisicao, obr_dimensoes, art_codigo)
+
+	pintura (o̲b̲r̲_̲c̲o̲d̲i̲g̲o̲, pin_tipoTinta)
+	
+	escultura (o̲b̲r̲_̲c̲o̲d̲i̲g̲o̲, esc_material)
+
+	artista (a̲r̲t̲_̲c̲o̲d̲i̲g̲o̲, art_nome, art_nacionalidade)
+
+	tecnica (t̲e̲c̲_̲c̲o̲d̲i̲g̲o̲, tec_descricao)
+
+	artista-tecnica (art_codigo, tec_codigo)
+
+Questão 3 ->
+	a)
+	funcionarios (I̲d̲_̲f̲u̲n̲c̲i̲o̲n̲a̲r̲i̲o̲, nome_funcionario, cod_cargo)
+	cargo (c̲o̲d̲_̲c̲a̲r̲g̲o̲, descricao_cargo)
+
+	b)
+	Departamento (c̲o̲d̲D̲e̲p̲t̲o̲, nomeDepto)
+	Projetos (c̲o̲d̲P̲r̲o̲j̲, tipoProj, descricaoProj, codDepto)
+	Empregados (c̲o̲d̲E̲m̲p̲, nomeEmp, categoriaEmp, salarioEmp)
+	ProjetoEmpregado (codProj, codEmp)
+
+				PARTE 2
+
+Questão 3 ->
+	--select fun_nome from Funcionario
+	--order by fun_nome desc
+
+Questão 4 ->
+	--select tpq_descricao, count(*) as QuantidadeQuartos from tipoquarto
+	--join Quarto on TipoQuarto.tpq_codigo = Quarto.tpq_codigo
+	--group by tpq_descricao
+
+Questão 5 ->
+	--select hos_nome, hpg_status from hospede
+	--join Reserva on hospede.hos_codigo = Reserva.hos_codigo
+	--join Hospedagem on Reserva.res_codigo = Hospedagem.res_codigo
+	--where hpg_status = 'A'
+
+Questão 6 ->
+	--select max(hpg_valorTotal) as Maximo, min(hpg_valorTotal) as Minimo, avg(hpg_valorTotal) as Media from Hospedagem
+
+Questão 7 ->
+	--select hpg_codigo, DATEDIFF(DAY, hpg_dtEntrada, CURRENT_TIMESTAMP) as Dias from Hospedagem
+	--where hpg_status = 'A'
+
+Questão 8 ->
+	--select hos_nome, tph_descricao, hos_celular, hpg_dtEntrada from Hospede
+	--join TipoHospede on Hospede.tph_codigo = TipoHospede.tph_codigo
+	--join Reserva on Hospede.hos_codigo = Reserva.hos_codigo
+	--join Hospedagem on Reserva.res_codigo = Hospedagem.res_codigo
+
+Questão 9 ->
+	--select hos_nome, tpq_descricao from Hospede
+	--join Reserva on Hospede.hos_codigo = Reserva.hos_codigo
+	--join Quarto on Reserva.qua_codigo = Quarto.qua_numero
+	--Join TipoQuarto on Quarto.tpq_codigo = TipoQuarto.tpq_codigo
+	--where tpq_descricao = 'quarto casal'
+	
+Questão 10 ->
+	--select fun_nome from Funcionario
+	--where fun_nome like '%m%'
+
+Questão 11 -> 
+	--insert into TipoQuarto (tpq_codigo, tpq_descricao)
+	--values (4, 'quarto master')
+
+Questão 12 ->
+	--update Funcionario
+	--set fun_nome = 'Rafael Martins Vasconcelos'
+	--where fun_nome = 'Rafael Martins'
